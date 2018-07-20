@@ -145,7 +145,7 @@
 
 - 本方案通过在Token生成阶段挂载智能合约和Token使用阶段执行智能合约的方式来实现对一Token使用过程中的业务逻辑限制。用户可通过部署自定义的智能合约而不修改FISCO BCOS程序来实现不同的业务逻辑限制。
 
-- 在挂载智能合约阶段，涉及三个字段，分别为initcontract、initfuncandparams和validationcontract。所涉及的智能合约有三种分类，分别为模板合约、实例合约和模板合约。
+- 在挂载智能合约阶段，涉及三个字段，分别为initcontract、initfuncandparams和validationcontract。所涉及的智能合约有三种分类，分别为通用合约、实例合约和模板合约。
 
 - 对于validationcontract字段（业务校验合约地址），用户可指直接传入已部署到链上的智能合约的地址（此时使用的智能合约我们称之为通用合约，该通用合约与特定Token无关）。如validationcontract字段的输入为空，且initcontract和initfuncandparams两字段有值时，将尝试通过initcontract和initfuncandparams生成validationcontract字段。其中initcontract的字段值也需为已部署到链上的智能合约的地址（此时使用的智能合约我们称之为模板合约，该模板合约被执行后生成的实例合约与特定Token相关，每个Token都有独立对应的实例合约）。
 
